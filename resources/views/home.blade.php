@@ -9,9 +9,7 @@
 
                     <div class="row">
                         <div class="col-md-4">
-                            <painel titulo="Dashboard" cor="panel-blue">
-                                Teste de conteúdo
-                            </painel>
+                            <caixa></caixa>
                         </div>
 
                         <div class="col-md-4">
