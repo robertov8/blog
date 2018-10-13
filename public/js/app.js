@@ -43963,7 +43963,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n.bg-aqua[data-v-7ee0364d] {\n    background-color: #00c0ef !important;\n}\n.small-box[data-v-7ee0364d] {\n    border-radius: 2px;\n    position: relative;\n    display: block;\n    margin-bottom: 20px;\n    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.1);\n            box-shadow: 0 1px 1px rgba(0,0,0,0.1);\n}\n.small-box>.inner[data-v-7ee0364d] {\n    padding: 10px;\n}\n.small-box h3[data-v-7ee0364d], .small-box p[data-v-7ee0364d] {\n    z-index: 5;\n}\n.small-box h3[data-v-7ee0364d] {\n    font-size: 38px;\n    font-weight: bold;\n    margin: 0 0 10px 0;\n    white-space: nowrap;\n    padding: 0;\n}\n.small-box h3[data-v-7ee0364d], .small-box p[data-v-7ee0364d] {\n    z-index: 5;\n}\n.small-box p[data-v-7ee0364d] {\n    font-size: 15px;\n}\np[data-v-7ee0364d] {\n    margin: 0 0 10px;\n}\n.small-box .icon[data-v-7ee0364d] {\n    -webkit-transition: all .3s linear;\n    transition: all .3s linear;\n    position: absolute;\n    top: -10px;\n    right: 10px;\n    z-index: 0;\n    font-size: 90px;\n    color: rgba(0,0,0,0.15);\n}\n.small-box>.small-box-footer[data-v-7ee0364d] {\n    position: relative;\n    text-align: center;\n    padding: 3px 0;\n    color: #fff;\n    color: rgba(255,255,255,0.8);\n    display: block;\n    z-index: 10;\n    background: rgba(0,0,0,0.1);\n    text-decoration: none;\n}\n.small-box>.small-box-footer[data-v-7ee0364d]:hover {\n    color: #fff;\n    background: rgba(0,0,0,0.15);\n}\na[data-v-7ee0364d]:hover, a[data-v-7ee0364d]:active, a[data-v-7ee0364d]:focus {\n    outline: none;\n    text-decoration: none;\n    color: #72afd2;\n}\n.fa[data-v-7ee0364d] {\n    display: inline-block;\n    font: normal normal normal 14px/1 FontAwesome;\n    font-size: inherit;\n    text-rendering: auto;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n}\n", ""]);
+exports.push([module.i, "\nh3[data-v-7ee0364d] {\n    font-family: 'Source Sans Pro',sans-serif;\n}\n.bg-aqua[data-v-7ee0364d] {\n    background-color: #00c0ef !important;\n}\n.small-box[data-v-7ee0364d] {\n    border-radius: 2px;\n    position: relative;\n    display: block;\n    margin-bottom: 20px;\n    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.1);\n            box-shadow: 0 1px 1px rgba(0,0,0,0.1);\n    color: #fff;\n}\n.small-box[data-v-7ee0364d]:hover {\n    text-decoration: none;\n    color: #f9f9f9;\n}\n.small-box>.inner[data-v-7ee0364d] {\n    padding: 10px;\n}\n.small-box h3[data-v-7ee0364d], .small-box p[data-v-7ee0364d] {\n    z-index: 5;\n}\n.small-box h3[data-v-7ee0364d] {\n    font-size: 38px;\n    font-weight: bold;\n    margin: 0 0 10px 0;\n    white-space: nowrap;\n    padding: 0;\n}\n.small-box h3[data-v-7ee0364d], .small-box p[data-v-7ee0364d] {\n    z-index: 5;\n}\n.small-box p[data-v-7ee0364d] {\n    font-size: 15px;\n}\np[data-v-7ee0364d] {\n    margin: 0 0 10px;\n}\n.small-box .icon[data-v-7ee0364d] {\n    -webkit-transition: all .3s linear;\n    transition: all .3s linear;\n    position: absolute;\n    top: -10px;\n    right: 10px;\n    z-index: 0;\n    font-size: 90px;\n    color: rgba(0,0,0,0.15);\n}\n.small-box:hover .icon[data-v-7ee0364d] {\n    font-size: 95px;\n}\n.small-box>.small-box-footer[data-v-7ee0364d] {\n    position: relative;\n    text-align: center;\n    padding: 3px 0;\n    color: #fff;\n    color: rgba(255,255,255,0.8);\n    display: block;\n    z-index: 10;\n    background: rgba(0,0,0,0.1);\n    text-decoration: none;\n}\n.small-box>.small-box-footer[data-v-7ee0364d]:hover {\n    color: #fff;\n    background: rgba(0,0,0,0.15);\n}\na[data-v-7ee0364d]:hover, a[data-v-7ee0364d]:active, a[data-v-7ee0364d]:focus {\n    outline: none;\n    text-decoration: none;\n    color: #72afd2;\n}\n.fa[data-v-7ee0364d] {\n    display: inline-block;\n    font: normal normal normal 14px/1 FontAwesome;\n    font-size: inherit;\n    text-rendering: auto;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n}\n", ""]);
 
 // exports
 
@@ -43992,7 +43992,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: "Caixa"
+    props: ['qtd', 'titulo', 'url', 'cor', 'icone'],
+    computed: {
+        getColor: function getColor() {
+            return 'background-color: ' + this.cor + ' !important;';
+        }
+    }
 });
 
 /***/ }),
@@ -44003,28 +44008,26 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "small-box", style: _vm.getColor }, [
+    _c("div", { staticClass: "inner" }, [
+      _c("h3", [_vm._v(_vm._s(_vm.qtd))]),
+      _vm._v(" "),
+      _c("p", [_vm._v(_vm._s(_vm.titulo))])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "icon" }, [_c("i", { class: _vm.icone })]),
+    _vm._v(" "),
+    _vm._m(0)
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "small-box bg-aqua" }, [
-      _c("div", { staticClass: "inner" }, [
-        _c("h3", [_vm._v("150")]),
-        _vm._v(" "),
-        _c("p", [_vm._v("New Orders")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "icon" }, [
-        _c("i", { staticClass: "ion ion-stats-bars" })
-      ]),
-      _vm._v(" "),
-      _c("a", { staticClass: "small-box-footer", attrs: { href: "#" } }, [
-        _vm._v("\n        More info "),
-        _c("i", { staticClass: "fa fa-arrow-circle-right" })
-      ])
+    return _c("a", { staticClass: "small-box-footer", attrs: { href: "#" } }, [
+      _vm._v("\n        Ver mais "),
+      _c("i", { staticClass: "fa fa-arrow-circle-right" })
     ])
   }
 ]

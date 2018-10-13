@@ -1,26 +1,34 @@
 <template>
-    <div class="small-box bg-aqua">
+    <div class="small-box" v-bind:style="getColor">
         <div class="inner">
-            <h3>150</h3>
+            <h3>{{ qtd }}</h3>
 
-            <p>New Orders</p>
+            <p>{{ titulo }}</p>
         </div>
         <div class="icon">
-            <i class="ion ion-stats-bars"></i>
+            <i v-bind:class="icone"></i>
         </div>
         <a href="#" class="small-box-footer">
-            More info <i class="fa fa-arrow-circle-right"></i>
+            Ver mais <i class="fa fa-arrow-circle-right"></i>
         </a>
     </div>
 </template>
 
 <script>
     export default {
-        name: "Caixa"
+        props: ['qtd', 'titulo', 'url', 'cor', 'icone'],
+        computed: {
+            getColor: function () {
+                return `background-color: ${this.cor} !important;`
+            },
+        }
     }
 </script>
 
 <style scoped>
+    h3 {
+        font-family: 'Source Sans Pro',sans-serif;
+    }
     .bg-aqua {
         background-color: #00c0ef !important;
     }
@@ -31,6 +39,12 @@
         display: block;
         margin-bottom: 20px;
         box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        color: #fff;
+    }
+
+    .small-box:hover {
+        text-decoration: none;
+        color: #f9f9f9;
     }
 
     .small-box>.inner {
@@ -71,6 +85,10 @@
         z-index: 0;
         font-size: 90px;
         color: rgba(0,0,0,0.15);
+    }
+
+    .small-box:hover .icon {
+        font-size: 95px;
     }
 
     .small-box>.small-box-footer {
