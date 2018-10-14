@@ -11,22 +11,29 @@
             </thead>
 
             <tbody>
-                <tr v-for="item in itens">
+                <tr v-for="(item, index) in itens">
                     <td v-for="i in item">{{i}}</td>
 
                     <td v-if="detalhe || editar || deletar">
-                        <form v-if="deletar && token" action="">
+                        <form v-bind:id="index" v-if="deletar && token" v-bind:action="deletar" method="post">
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="_token" v-bind:value="token">
 
                             <a v-if="detalhe" v-bind:href="detalhe">Detalhe |</a>
                             <a v-if="editar" v-bind:href="editar"> Editar |</a>
-                            <a v-if="deletar" v-bind:href="deletar">Deletar</a>
+                            <a href="#" v-on:click="execForm(index)">Deletar</a>
                         </form>
 
-                        <a v-if="detalhe" v-bind:href="detalhe">Detalhe |</a>
-                        <a v-if="editar" v-bind:href="editar"> Editar |</a>
-                        <a v-if="deletar" v-bind:href="deletar">Deletar</a>
+                        <span v-if="!token">
+                            <a v-if="detalhe" v-bind:href="detalhe">Detalhe |</a>
+                            <a v-if="editar" v-bind:href="editar"> Editar |</a>
+                            <a v-if="deletar" v-bind:href="deletar">Deletar</a>
+                        </span>
+
+                        <span v-if="token && !deletar">
+                            <a v-if="detalhe" v-bind:href="detalhe">Detalhe |</a>
+                            <a v-if="editar" v-bind:href="editar"> Editar</a>
+                        </span>
                     </td>
                 </tr>
             </tbody>
@@ -36,7 +43,12 @@
 
 <script>
     export default {
-        props: ['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token']
+        props: ['titulos', 'itens', 'criar', 'detalhe', 'editar', 'deletar', 'token'],
+        methods: {
+            execForm: function (index) {
+                document.getElementById(index).submit();
+            }
+        }
     }
 </script>
 
