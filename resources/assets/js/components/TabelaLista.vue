@@ -52,7 +52,9 @@
         props: ['titulos', 'itens', 'ordem', 'ordemcol', 'criar', 'detalhe', 'editar', 'deletar', 'token'],
         data: function () {
             return {
-                buscar: ''
+                buscar: '',
+                ordemAux: this.ordem || 'asc',
+                ordemAuxCol: this.ordemcol || 0
             }
         },
         methods: {
@@ -60,20 +62,20 @@
                 document.getElementById(index).submit();
             },
             ordenaColuna: function (coluna) {
-                this.ordemCol = coluna;
+                this.ordemAuxCol = coluna;
 
-                if (this.ordem.toLowerCase() === 'asc') {
-                    this.ordem = 'desc';
+                if (this.ordemAux.toLowerCase() === 'asc') {
+                    this.ordemAux = 'desc';
                 } else {
-                    this.ordem = 'asc';
+                    this.ordemAux = 'asc';
                 }
             }
         },
         computed: {
             lista: function () {
 
-                let ordem = this.ordem.toLowerCase() || 'asc'.toLowerCase();
-                let ordemCol = parseInt(this.ordemcol) || 0;
+                let ordem = this.ordemAux.toLowerCase();
+                let ordemCol = parseInt(this.ordemAuxCol);
 
                 if (ordem === 'asc') {
                     this.itens.sort(function (a, b) {
