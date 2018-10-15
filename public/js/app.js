@@ -44266,7 +44266,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -44342,6 +44342,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         lista: function lista() {
             var _this = this;
+
+            this.itens.sort(function (a, b) {
+                if (a[0] > b[0]) {
+                    return 1;
+                }
+                if (a[0] < b[0]) {
+                    return -1;
+                }
+                return 0;
+            });
 
             return this.itens.filter(function (res) {
                 for (var k = 0; k < res.length; k++) {
